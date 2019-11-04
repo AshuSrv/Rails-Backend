@@ -1,4 +1,4 @@
-class RegisterController < ApplicationController 
+class RegisterController < ApplicationController  
     def create
         getUser = User.find_by(uid: params['uid'])
         if (getUser == nil) 
@@ -7,13 +7,26 @@ class RegisterController < ApplicationController
         end
         getUser.username = params['username']
         getUser.accessToken = params['accessToken']
-        getUser.data_access_expiration_time = params['data_access_expiration_time']
-        getUser.expiresIn = params['expiresIn']
-        getUser.signedRequest = params['signedRequest']
+        getUser.pic_url = params['pic_url']
+        getUser.email = params['email']
+        getUser.provider = params['provider']
+        getUser.secret = params['secret']
         getUser.save
         render json: {
             status: 'ok',
             user: getUser
         }
+       
     end
+
+    def login
+        @user = User.koala(request.env['omniauth.auth']['credentials'])
+        #redirect_to('http://localhost:3001/xyz') and return
+        render json:{
+            Friend_count:@user['friends']['summary']['total_count'],
+            user:@user['photos']['data'][0]['created_time']
+        }
+      end
+
+
 end

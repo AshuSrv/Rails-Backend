@@ -15,10 +15,11 @@ ActiveRecord::Schema.define(version: 2019_10_29_061040) do
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "username"
     t.text "accessToken"
-    t.string "data_access_expiration_time"
-    t.string "expiresIn"
-    t.text "signedRequest"
+    t.string "provider"
+    t.string "email"
+    t.text "pic_url"
     t.string "uid"
+    t.text "secret"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
