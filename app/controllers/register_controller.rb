@@ -12,6 +12,7 @@ class RegisterController < ApplicationController
         getUser.provider = params['provider']
         getUser.secret = params['secret']
         getUser.save
+
         render json: {
             status: 'ok',
             user: getUser
@@ -19,14 +20,14 @@ class RegisterController < ApplicationController
        
     end
 
-    def login
-        @user = User.koala(request.env['omniauth.auth']['credentials'])
-        #redirect_to('http://localhost:3001/xyz') and return
-        render json:{
-            Friend_count:@user['friends']['summary']['total_count'],
-            user:@user['photos']['data'][0]['created_time']
-        }
-      end
+    # def login
+    #     @user = User.koala(request.env['omniauth.auth']['credentials'])
+    #     #redirect_to('http://localhost:3001/xyz') and return
+    #     render json:{
+    #         Friend_count:@user['friends']['summary']['total_count'],
+    #         user:@user['photos']['data'][0]['created_time']
+    #     }
+    #   end
 
 
 end

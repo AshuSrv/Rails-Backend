@@ -11,10 +11,10 @@ class User < ApplicationRecord
     #     user
     # end
 
-        def self.koala(auth)
-          access_token = auth['token']
-          facebook = Koala::Facebook::API.new(access_token)
-          facebook.get_object("me?fields=id,name,birthday,hometown,location,photos,posts,friends,gender,age_range,email,link,favorite_athletes,favorite_teams")
-        end
+        # def self.koala(auth)
+        #   access_token = auth['token']
+        #   facebook = Koala::Facebook::API.new(access_token)
+        #   facebook.get_object("me?fields=id,name,birthday,hometown,location,photos,posts,friends,gender,age_range,email,link,favorite_athletes,favorite_teams")
+        # end
 
 end
