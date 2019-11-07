@@ -5,9 +5,9 @@ class RegisterController < ApplicationController
             getUser = User.new
             getUser.uid = params['uid']
         end
-        getUser.username = params['username']
-        getUser.accessToken = params['accessToken']
-        getUser.pic_url = params['pic_url']
+        getUser.name = params['name']
+        getUser.token = params['token']
+        getUser.profile_image = params['profile_image']
         getUser.email = params['email']
         getUser.provider = params['provider']
         getUser.secret = params['secret']

@@ -13,11 +13,11 @@
 ActiveRecord::Schema.define(version: 2019_10_29_061040) do
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.string "username"
-    t.text "accessToken"
+    t.string "name"
+    t.text "token"
     t.string "provider"
     t.string "email"
-    t.text "pic_url"
+    t.text "profile_image"
     t.string "uid"
     t.text "secret"
     t.datetime "created_at", precision: 6, null: false
